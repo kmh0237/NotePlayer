@@ -1,6 +1,7 @@
 const audio = new Audio('./key3.mp3');
 let notes = []
 const playedNotes = []
+const numberOfOctaves = 2
 
 window.addEventListener('load', function() {
     getKeys(audio)
@@ -15,9 +16,7 @@ function getKeys(sound) {
     for(var i = 0; i < keyCount; i++) {
         const newSound = sound.cloneNode()
         newSound.preservesPitch = false;
-        if(keys.length > 0){
-            playbackRate = playbackRate - .1
-        }
+        playbackRate = 2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12);
         newSound.playbackRate = playbackRate
         keys.push(newSound)
     }
