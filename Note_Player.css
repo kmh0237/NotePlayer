@@ -6,3 +6,28 @@
     color:rgb(185, 143, 6);
     font-size: 30px;
 }
+
+#PianoKeys {
+    display: flex;
+    flex-direction: row;
+}
+
+.flat-key {
+    z-index: 50;
+    background: white;
+    width: 50px;
+    height: 200px;
+    cursor: pointer;
+    border: 2px solid #787878;
+}
+
+.sharp-key {
+    z-index: 100;
+    margin-left: -12.5px;
+    margin-right: -12.5px;
+    background: black;
+    width: 25px;
+    height: 150px;
+    cursor: pointer;
+    border: 2px solid #787878;
+}

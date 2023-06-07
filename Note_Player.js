@@ -1,4 +1,4 @@
-const audio = new Audio('./key.mp3');
+const audio = new Audio('./piano_key.mp3');
 let noteId = -1;
 let keys = []
 const playedNotes = []
@@ -16,7 +16,8 @@ function setNoteId() {
 function getKeys(sound) {
     let playbackRate = 1;
     
-    const pageKeys = document.getElementById('PianoKeys').querySelectorAll('button');
+    const pageKeys = document.getElementById('PianoKeys').querySelectorAll('div');
+    console.log(pageKeys)
 
     for(var i = 0; i < pageKeys.length; i++) {
         if(keys.length > 0){
@@ -26,6 +27,7 @@ function getKeys(sound) {
     }
 
     pageKeys.forEach(key => {
+        console.log(key)
         key.id = setNoteId();
         key.addEventListener('click', function() {
             const newSound = sound.cloneNode();
