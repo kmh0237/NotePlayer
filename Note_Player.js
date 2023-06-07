@@ -36,16 +36,6 @@ function getKeys(sound) {
       });
 }
 
-// function play(id) {
-
-//     notes[id].play()
-
-//     // playedNotes.push(notes[id])
-
-//     // playedNotes.forEach((key) =>  key.play())
-//    // key.play()
-// }
-
 function stop() {
     playedNotes.forEach(key => {
         key.pause();
