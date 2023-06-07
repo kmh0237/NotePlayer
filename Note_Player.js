@@ -1,5 +1,6 @@
 const audio = new Audio('./piano_key.mp3');
 let noteId = -1;
+const numberOfOctaves = 2;
 let keys = []
 const playedNotes = []
 
@@ -14,25 +15,18 @@ function setNoteId() {
 }
 
 function getKeys(sound) {
-    let playbackRate = 1;
-    
     const pageKeys = document.getElementById('PianoKeys').querySelectorAll('div');
-    console.log(pageKeys)
 
     for(var i = 0; i < pageKeys.length; i++) {
-        if(keys.length > 0){
-            playbackRate = playbackRate - .1
-        }
-        keys.push(playbackRate)
+        keys.push(2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12))
     }
 
-    pageKeys.forEach(key => {
-        console.log(key)
-        key.id = setNoteId();
-        key.addEventListener('click', function() {
+    pageKeys.forEach(pageKey => {
+        pageKey.id = setNoteId();
+        pageKey.addEventListener('click', function() {
             const newSound = sound.cloneNode();
             newSound.preservesPitch = false;
-            newSound.playbackRate = keys[key.id]
+            newSound.playbackRate = keys[pageKey.id]
             newSound.play();
         } );
       });
