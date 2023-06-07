@@ -1,41 +1,52 @@
 const audio = new Audio('./piano_key.mp3');
-let noteId = -1;
+let keyRates = []
+
+let keyId = -1;
 const numberOfOctaves = 2;
-let keys = []
-const playedNotes = []
+
+const playedKeys = []
 
 window.addEventListener('load', function() {
     getKeys(audio)
 })
 
-function setNoteId() {
-    noteId = noteId + 1;
+function setKeyId() {
+    keyId = keyId + 1;
 
-    return noteId;
+    return keyId;
+}
+
+function getRates(numberOfKeys) {
+    for(var i = 0; i < numberOfKeys; i++) {
+        keyRates.push(2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12))
+    }
+}
+
+function setClicker(key, sound) {
+    key.addEventListener('click', function() {
+        const newSound = sound.cloneNode();
+        newSound.preservesPitch = false;
+        newSound.playbackRate = keyRates[key.id]
+        playedKeys.push(newSound);
+        newSound.play();
+    } );
 }
 
 function getKeys(sound) {
-    const pageKeys = document.getElementById('PianoKeys').querySelectorAll('div');
+    const keys = document.getElementById('PianoKeys').querySelectorAll('div');
 
-    for(var i = 0; i < pageKeys.length; i++) {
-        keys.push(2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12))
-    }
+    getRates(keys.length)
 
-    pageKeys.forEach(pageKey => {
-        pageKey.id = setNoteId();
-        pageKey.addEventListener('click', function() {
-            const newSound = sound.cloneNode();
-            newSound.preservesPitch = false;
-            newSound.playbackRate = keys[pageKey.id]
-            newSound.play();
-        } );
+    keys.forEach(key => {
+        key.id = setKeyId();
+        setClicker(key, sound);
       });
 }
 
 function stop() {
-    playedNotes.forEach(key => {
+    playedKeys.forEach(key => {
         key.pause();
         key.currentTime = 0;
     })
-    playedNotes = []
+    playedKeys = []
 }
