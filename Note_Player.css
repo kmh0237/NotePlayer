@@ -17,7 +17,6 @@
     background: white;
     width: 50px;
     height: 200px;
-    cursor: pointer;
     border: 2px solid #787878;
 }
 
@@ -28,6 +27,5 @@
     background: black;
     width: 25px;
     height: 150px;
-    cursor: pointer;
     border: 2px solid #787878;
 }
