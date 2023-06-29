@@ -1,8 +1,6 @@
 let keyId = -1;
 
-console.log("init")
 window.addEventListener('load', function() {
-    console.log("load")
     getKeys();
 })
 
@@ -19,7 +17,6 @@ function setClicker(key) {
 
 function getKeys() {
     const keys = document.getElementById('PianoKeys').querySelectorAll('div');
-    console.log(keys)
     keys.forEach(key => {
         key.id = setKeyId();
         setClicker(key);
