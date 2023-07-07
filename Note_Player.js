@@ -10,7 +10,7 @@
 let keyId = -1;
 
 // Configuration which lets us know how many octaves are involved, since we want to start lower the more octaves are included
-const numberOfOctaves = 1;
+let numberOfOctaves = 1;
 
 // Set up soundbite
 let audio = new Audio('./piano_key.mp3');
