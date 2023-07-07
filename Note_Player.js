@@ -6,7 +6,7 @@
 
 */
 
-// Keeps track of what id things will be.
+// Keeps track of what id a key will be.
 let keyId = -1;
 
 // Configuration which lets us know how many octaves are involved, since we want to start lower the more octaves are included
