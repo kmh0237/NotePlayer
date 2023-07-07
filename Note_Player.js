@@ -16,10 +16,10 @@ let numberOfOctaves = 1;
 let audio = new Audio('./piano_key.mp3');
 
 // Keeps track of keys which are currently playing
-let playedKeys = []
+let playedKeys = [];
 
 // Keeps track of the pitches for each key, by index
-let keyPitches = []
+let keyPitches = [];
 
 // Gets the key functions in when the page loads
 window.addEventListener('load', function() {
