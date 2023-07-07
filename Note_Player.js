@@ -1,3 +1,11 @@
+/*
+
+    let: Used to declare a Variable (which is a way to store information in your program)
+
+    function: Declare a function (which is a way to share common code)
+
+*/
+
 let keyId = -1;
 
 window.addEventListener('load', function() {
