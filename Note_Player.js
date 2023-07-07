@@ -23,6 +23,8 @@ function setKeyId() {
 function setKeyAction(key) {
     key.addEventListener('click', function() {
         alert(key.id);
+        const newSound = sound.cloneNode();
+        newSound.play();
     });
 }
 
