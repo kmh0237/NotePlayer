@@ -6,7 +6,7 @@
 
 */
 
-// Keeps track of what id things will be.
+// Keeps track of what id a key will be.
 let keyId = -1;
 
 // Set up soundbite
