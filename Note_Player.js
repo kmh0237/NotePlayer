@@ -12,6 +12,9 @@ let keyId = -1;
 // Set up soundbite
 let audio = new Audio('./piano_key.mp3');
 
+// Keeps track of keys which are currently playing
+let playedKeys = []
+
 window.addEventListener('load', function() {
     getKeys(audio);
 })
@@ -27,6 +30,7 @@ function setKeyAction(key, sound) {
     key.addEventListener('click', function() {
         alert(key.id);
         const newSound = sound.cloneNode();
+        playedKeys.push(newSound);
         newSound.play();
     });
 }
