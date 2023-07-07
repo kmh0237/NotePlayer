@@ -17,8 +17,9 @@ function setKeyAction(key) {
     });
 }
 
-// Getting the keys from the DOM and looping through them
+// Getting the keys from the html and looping through them
 function getKeys() {
+    // This gets the keys from the html, by first finding the #piano-div then getting all the divs underneath it in an array
     const keys = document.getElementById('piano-div').querySelectorAll('div');
     keys.forEach(key => {
         key.id = setKeyId();
