@@ -58,7 +58,6 @@ function setKeyId() {
 // Setting the action of the key it's given
 function setKeyAction(key, sound) {
     key.addEventListener('click', function() {
-        alert(key.id);
         const newSound = sound.cloneNode();
 
         // Change the pitch (playbackRate) to our pitch defined in keyPitches
