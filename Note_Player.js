@@ -6,7 +6,7 @@
 
 */
 
-// keeps track of what id things will be.
+// Keeps track of what id things will be.
 let keyId = -1;
 
 window.addEventListener('load', function() {
