@@ -6,7 +6,7 @@
 
 */
 
-// keeps track of what id things will be.
+// Keeps track of what id things will be.
 let keyId = -1;
 
 window.addEventListener('load', function() {
@@ -39,4 +39,13 @@ function getKeys() {
         key.id = setKeyId();
         setKeyAction(key);
     });
+}
+
+// Find any keys that are playing and stop them
+function stop() {
+    playedKeys.forEach(key => {
+        key.pause();
+        key.currentTime = 0;
+    })
+    playedKeys = []
 }
