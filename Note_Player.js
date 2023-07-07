@@ -9,7 +9,7 @@ function setKeyId() {
     return keyId;
 }
 
-function setClicker(key) {
+function setKeyAction(key) {
     key.addEventListener('click', function() {
         alert(key.id);
     });
@@ -19,6 +19,6 @@ function getKeys() {
     const keys = document.getElementById('piano-div').querySelectorAll('div');
     keys.forEach(key => {
         key.id = setKeyId();
-        setClicker(key);
+        setKeyAction(key);
     });
 }
