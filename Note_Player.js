@@ -16,7 +16,7 @@ function setClicker(key) {
 }
 
 function getKeys() {
-    const keys = document.getElementById('PianoKeys').querySelectorAll('div');
+    const keys = document.getElementById('piano-div').querySelectorAll('div');
     keys.forEach(key => {
         key.id = setKeyId();
         setClicker(key);

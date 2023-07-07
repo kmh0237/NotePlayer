@@ -1,22 +1,51 @@
+<!-- 
+
+    html: (HyperText Markup Language) Used to tell a browser what language it should read in. (*Code is like any written language, there are rules to follow for each one, and there are lots!*)
+
+    div: (Division) Used to divide things into groups.
+
+    head: (Header) Used to define things the page will use for your page. 
+
+    body: The base for what you see on a screen.
+
+    p: (Paragraph) Used for any text on the page.
+
+    class: Used for multiple things that would all share a similar look.
+
+    id: Used for individual things that would not share a similar look.
+
+    rel: (Relationship) Used to tell the page what something is.
+
+    href: (Hypertext reference) Used to tell the page there is a link.
+
+ -->
+
 <html>  
 
+    <!-- This is where we show the page the things it needs to use!  -->
     <head>
         <script type="text/javascript" src="Note_Player.js"></script>
         <link rel="stylesheet" href="Note_Player.css">
     </head> 
 
-    <body class="pianoBody"> <!-- This is the body tag -->
+    <!-- This is the start of the page! -->
+    <body id="piano-body">  
 
-        <p class="title">Welcome to Note Player</p> <!-- This is the header message -->
+        <!-- Change this to change the words on the page! -->
+        <p id="title">Welcome to Note Player</p>  
 
-        <div id='PianoKeys'> <!-- This is the list of piano keys -->
+        <!-- This is the piano! -->
+        <div id='piano-div'>
+
+            <!-- These are the keys you see on the page! -->
             <div class="flat-key"></div> <!-- Each key is marked with a class to determine what it will look like -->
-            <div class="sharp-key"></div>
+            <div class="sharp-key"></div> 
             <div class="flat-key"></div>
             <div class="sharp-key"></div>
             <div class="flat-key"></div>
+
         </div>  
 
     </body>  
 
-</html>  
+</html>

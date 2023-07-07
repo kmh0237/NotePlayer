@@ -1,17 +1,30 @@
-.pianoBody {
+/* 
+
+. : (Class) Used for multiple things that would all share a similar look.
+
+# : (Id) Used for individual things that would not share a similar look.
+
+*/
+
+
+/* This controls how the background looks */
+#piano-body {
     background-color: rgb(52, 61, 65);
 }
 
-.title {
+/* This controls how the the title looks */
+#title {
     color:rgb(185, 143, 6);
     font-size: 30px;
 }
 
-#PianoKeys {
+/* This controls how the entire piano looks */
+#piano-div {
     display: flex;
     flex-direction: row;
 }
 
+/* This controls how the flat keys look*/
 .flat-key {
     z-index: 50;
     background: white;
@@ -21,6 +34,7 @@
     border: 2px solid #787878;
 }
 
+/* This controls how the sharp keys will look */
 .sharp-key {
     z-index: 100;
     margin-left: -12.5px;
