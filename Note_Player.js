@@ -15,6 +15,9 @@ let audio = new Audio('./piano_key.mp3');
 // Keeps track of keys which are currently playing
 let playedKeys = []
 
+// Keeps track of the pitches for each key, by index
+let keyPitches = []
+
 // Gets the key functions in when the page loads
 window.addEventListener('load', function() {
     getKeys(audio);
@@ -26,11 +29,21 @@ function getKeys(sound) {
     // This gets the keys from the html by finding the "piano-div", then getting all the divs (keys) underneath it.
     const keys = document.getElementById('piano-div').querySelectorAll('div');
 
+    // Set the pitches of each key
+    setKeyPitches(keys.length);
+
     // Looping through the keys and setting their actions.
     keys.forEach(key => {
         key.id = setKeyId();
         setKeyAction(key, sound);
     });
+}
+
+// Setting the pitches of each key, using complicated math
+function setKeyPitches(numberOfKeys) {
+    for(let i = 0; i < numberOfKeys; i++) {
+        keyPitches.push(2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12))
+    }
 }
 
 // Keeping track of the variable "keyId", adding to it, and returning it.
@@ -44,6 +57,11 @@ function setKeyAction(key, sound) {
     key.addEventListener('click', function() {
         alert(key.id);
         const newSound = sound.cloneNode();
+
+        // Change the pitch (playbackRate) to our pitch defined in keyPitches
+        newSound.preservesPitch = false;
+        newSound.playbackRate = keyPitches[key.id]
+
         playedKeys.push(newSound);
         newSound.play();
     });
