@@ -9,8 +9,11 @@
 // Keeps track of what id things will be.
 let keyId = -1;
 
+// Set up soundbite
+let audio = new Audio('./piano_key.mp3');
+
 window.addEventListener('load', function() {
-    getKeys();
+    getKeys(audio);
 })
 
 // Keeping track of the variable "keyId", adding to it, and returning it.
@@ -20,7 +23,7 @@ function setKeyId() {
 }
 
 // Setting the action of the key it's given
-function setKeyAction(key) {
+function setKeyAction(key, sound) {
     key.addEventListener('click', function() {
         alert(key.id);
         const newSound = sound.cloneNode();
@@ -29,7 +32,7 @@ function setKeyAction(key) {
 }
 
 // Getting the keys from the html and looping through them
-function getKeys() {
+function getKeys(sound) {
 
     // This gets the keys from the html by finding the "piano-div", then getting all the divs (keys) underneath it.
     const keys = document.getElementById('piano-div').querySelectorAll('div');
@@ -37,7 +40,7 @@ function getKeys() {
     // Looping through the keys and setting their actions.
     keys.forEach(key => {
         key.id = setKeyId();
-        setKeyAction(key);
+        setKeyAction(key, sound);
     });
 }
 
