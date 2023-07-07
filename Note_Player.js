@@ -29,7 +29,7 @@ function setKeyAction(key) {
 function getKeys() {
     
     // This gets the keys from the html, by first finding the #piano-div then getting all the divs underneath it in an array
-    const keys = document.getElementById('piano-div').querySelectorAll('div');
+    let keys = document.getElementById('piano-div').querySelectorAll('div');
 
     // Looping through the keys and setting their actions
     keys.forEach(key => {
