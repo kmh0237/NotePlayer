@@ -59,7 +59,7 @@ function setKeyAction(key, sound) {
 
         // Change the pitch (playbackRate) to our pitch defined in keyPitches
         newSound.preservesPitch = false;
-        newSound.playbackRate = keyPitches[key.id]
+        newSound.playbackRate = keyPitches[key.id];
 
         playedKeys.push(newSound);
         newSound.play();
