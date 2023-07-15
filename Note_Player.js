@@ -9,9 +9,6 @@
 // Keeps track of what id a key will be.
 let keyId = -1;
 
-// Configuration which lets us know how many octaves are involved, since we want to start lower the more octaves are included
-let numberOfOctaves = 1;
-
 // Set up soundbite
 let audio = new Audio('./piano_key.mp3');
 
@@ -45,7 +42,7 @@ function getKeys(sound) {
 // Setting the pitches of each key, using complicated math
 function setKeyPitches(numberOfKeys) {
     for(let i = 0; i < numberOfKeys; i++) {
-        keyPitches.push(2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12))
+        keyPitches.push(2 ** ((i - Math.floor(1 / 2) * 12) / 12))
     }
 }
 
