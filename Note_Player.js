@@ -45,7 +45,7 @@ function getKeys(sound) {
 // Setting the pitches of each key, using complicated math
 function setKeyPitches(numberOfKeys) {
     for(let i = 0; i < numberOfKeys; i++) {
-        keyPitches.push(2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12))
+        keyPitches.push(2 ** ((i - Math.floor(numberOfOctaves / 2) * 12) / 12));
     }
 }
 
