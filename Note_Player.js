@@ -24,7 +24,7 @@ let keyPitches = [];
 // Gets the key functions in when the page loads
 window.addEventListener('load', function() {
     getKeys(audio);
-})
+});
 
 // Getting the keys from the html and looping through them
 function getKeys(sound) {
