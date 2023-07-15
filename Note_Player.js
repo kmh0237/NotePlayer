@@ -11,7 +11,7 @@ let keyId = -1;
 
 window.addEventListener('load', function() {
     getKeys();
-})
+});
 
 // Keeping track of the variable "keyId", adding to it, and returning it.
 function setKeyId() {
