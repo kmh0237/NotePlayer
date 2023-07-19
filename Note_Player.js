@@ -78,8 +78,8 @@ function setKeyAction(key, sound) {
         link.setAttribute('target', '_blank');
         link.textContent = 'link txt';
         div.innerText = `There was a song written in this key! It's called ${pageData.query.pages[randomPageId].title}. Check it out here: `;
-        div.appendChild(link)
-        document.getElementById('piano-div').after(div)
+        div.appendChild(link);
+        document.getElementById('piano-div').after(div);
 
         let newSound = sound.cloneNode();
 
