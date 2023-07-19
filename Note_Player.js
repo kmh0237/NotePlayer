@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
 function getKeys(sound) {
 
     // This gets the keys from the html by finding the "piano-div", then getting all the divs (keys) underneath it.
-    const keys = document.getElementById('piano-div').querySelectorAll('div');
+    let keys = document.getElementById('piano-div').querySelectorAll('div');
 
     // Set the pitches of each key
     setKeyPitches(keys.length);
@@ -57,8 +57,31 @@ function setKeyId() {
 
 // Setting the action of the key it's given
 function setKeyAction(key, sound) {
-    key.addEventListener('click', function() {
-        const newSound = sound.cloneNode();
+    key.addEventListener('click', async function() {
+        // lookup key in wikipedia
+        let keyStringLookup = ['C', 'C-sharp', 'D', 'E-flat', 'E', 'F', 'F-sharp', 'G', 'A-flat', 'A', 'B-flat', 'B'];
+        let keyString = keyStringLookup[key.id % 12];
+        
+        let categoryResponse = await fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=Category:Compositions_in_${keyString}_major&prop=categories&cllimit=max&gcmlimit=max&origin=*&format=json`);
+        let categoryData = await categoryResponse.json();
+
+        let pages = Object.keys(categoryData.query.pages);
+        let randomPageId = categoryData.query.pages[pages[Math.floor(Math.random()*pages.length)]].pageid;
+
+        let pageResponse = await fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=info&pageids=${randomPageId}&inprop=url&origin=*&format=json`);
+        let pageData = await pageResponse.json();
+
+        let div = document.createElement('div');
+        div.setAttribute('style', 'color:white;margin-top:10px;');
+        const link = document.createElement('a');
+        link.setAttribute('href', pageData.query.pages[randomPageId].fullurl);
+        link.setAttribute('target', '_blank');
+        link.textContent = 'link txt';
+        div.innerText = `There was a song written in this key! It's called ${pageData.query.pages[randomPageId].title}. Check it out here: `;
+        div.appendChild(link)
+        document.getElementById('piano-div').after(div)
+
+        let newSound = sound.cloneNode();
 
         // Change the pitch (playbackRate) to our pitch defined in keyPitches
         newSound.preservesPitch = false;
