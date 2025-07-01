@@ -13,7 +13,7 @@ let keyId = -1;
 let numberOfOctaves = 2;
 
 // Set up soundbite
-let audio = new Audio('./piano_key.mp3');
+let audio = new Audio('./key.mp3');
 
 // Keeps track of keys which are currently playing
 let playedKeys = [];
