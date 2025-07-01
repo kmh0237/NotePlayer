@@ -17,11 +17,11 @@ let playedKeys = [];
 
 // Gets the key functions in when the page loads
 window.addEventListener('load', function() {
-    getKeys(audio);
+    getKeys();
 });
 
 // Getting the keys from the html and looping through them
-function getKeys(sound) {
+function getKeys() {
 
     // This gets the keys from the html by finding the "piano-div", then getting all the divs (keys) underneath it.
     const keys = document.getElementById('piano-div').querySelectorAll('div');
@@ -29,7 +29,7 @@ function getKeys(sound) {
     // Looping through the keys and setting their actions.
     keys.forEach(key => {
         key.id = setKeyId();
-        setKeyAction(key, sound);
+        setKeyAction(key);
     });
 }
 
@@ -40,10 +40,10 @@ function setKeyId() {
 }
 
 // Setting the action of the key it's given
-function setKeyAction(key, sound) {
+function setKeyAction(key) {
     key.addEventListener('click', function() {
         alert(key.id);
-        const newSound = sound.cloneNode();
+        const newSound = audio.cloneNode();
         playedKeys.push(newSound);
         newSound.play();
     });
