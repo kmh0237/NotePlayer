@@ -1,4 +1,4 @@
-const audio = new Audio('./piano_key.mp3');
+const audio = new Audio('./key.mp3');
 let keyRates = []
 
 let keyId = -1;
