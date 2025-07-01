@@ -23,11 +23,11 @@ let keyPitches = [];
 
 // Gets the key functions in when the page loads
 window.addEventListener('load', function() {
-    getKeys(audio);
+    getKeys();
 });
 
 // Getting the keys from the html and looping through them
-function getKeys(sound) {
+function getKeys() {
 
     // This gets the keys from the html by finding the "piano-div", then getting all the divs (keys) underneath it.
     let keys = document.getElementById('piano-div').querySelectorAll('div');
@@ -38,7 +38,7 @@ function getKeys(sound) {
     // Looping through the keys and setting their actions.
     keys.forEach(key => {
         key.id = setKeyId();
-        setKeyAction(key, sound);
+        setKeyAction(key);
     });
 }
 
@@ -56,7 +56,7 @@ function setKeyId() {
 }
 
 // Setting the action of the key it's given
-function setKeyAction(key, sound) {
+function setKeyAction(key) {
     key.addEventListener('click', async function() {
         // lookup key in wikipedia
         let keyStringLookup = ['C', 'C-sharp', 'D', 'E-flat', 'E', 'F', 'F-sharp', 'G', 'A-flat', 'A', 'B-flat', 'B'];
@@ -81,7 +81,7 @@ function setKeyAction(key, sound) {
         div.appendChild(link);
         document.getElementById('piano-div').after(div);
 
-        let newSound = sound.cloneNode();
+        let newSound = audio.cloneNode();
 
         // Change the pitch (playbackRate) to our pitch defined in keyPitches
         newSound.preservesPitch = false;
